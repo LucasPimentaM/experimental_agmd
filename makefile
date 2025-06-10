@@ -23,7 +23,7 @@ run:
 	-membrane_area 12.96 \
 	-vacuum_pressure -50000.0 \
 	-number_channels 6 \
-	-entry_temperature_feed 90.0 \
+	-entry_temperature_feed 70.0 \
 	-entry_temperature_cool 28.0 \
 	-entry_salinity_feed 0.035 \
 	-entry_salinity_cool 0.035 \

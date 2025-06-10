@@ -10,7 +10,7 @@ This work was funded by QatarEnergy, TotalEnergies, and FAPERJ
 
 static char help[] = "Reduced model for vacuum-enhanced air gap membrane distillation (V-AGMD) modules\n\n"
 "Developer: Prof. Kleber Marques Lisboa, UFF\n\n"
-"Funding: Petrogal do Brasil S.A. and FAPERJ\n\n"
+"Funding: QatarEnergy, TotalEnergies, and FAPERJ\n\n"
 "Usage:\n\n"
 "Let $BINFOLDER be the folder that contains the compiled binary; if running from the project root, $BINFOLDER=./bin/\n"
 "In the command line, type $ $BINFOLDER/vagmd0Dmodel -variable1 value1 -variable2 value2\n\n"

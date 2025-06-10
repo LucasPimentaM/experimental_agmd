@@ -23,7 +23,7 @@ typedef struct
 {
     // Operational conditions
     PetscReal feed_mass_flow_rate, cool_mass_flow_rate, entry_temperature_feed, entry_temperature_cool,
-              entry_salinity_feed, entry_salinity_cool, vacuum_pressure;
+              entry_salinity_feed, entry_salinity_cool, vacuum_pressure, BaCl2_concentration;
 
     // Geometrical dimensions and fixed properties
     PetscReal membrane_area, membrane_thickness, membrane_porosity, pore_diameter, feed_channel_height,

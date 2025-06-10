@@ -17,6 +17,7 @@ PetscErrorCode DessalBalance(DessalData *dessal_data)
               entry_salinity_feed = dessal_data->entry_salinity_feed,
               entry_salinity_cool = dessal_data->entry_salinity_cool,
               vacuum_pressure = dessal_data->vacuum_pressure,
+              BaCl2_concentration = dessal_data->BaCl2_concentration,
               membrane_area = dessal_data->membrane_area,
               membrane_thickness = dessal_data->membrane_thickness,
               membrane_porosity = dessal_data->membrane_porosity,
@@ -56,8 +57,8 @@ PetscErrorCode DessalBalance(DessalData *dessal_data)
     PetscReal avg_feed_temperature = 0.5 * (entry_temperature_feed + out_temperature_feed),
               avg_feed_salinity = PetscMax(0.5 * (entry_salinity_feed + out_salinity_feed), 0.0);
 
-    SaltWaterPropBuild(&feed_prop, avg_feed_temperature, avg_feed_salinity);
-    SaltWaterPropBuild(&feed_memb_prop, feed_membrane_temperature, membrane_salinity);
+    SaltWaterPropBuild(&feed_prop, avg_feed_temperature, avg_feed_salinity, BaCl2_concentration);
+    SaltWaterPropBuild(&feed_memb_prop, feed_membrane_temperature, membrane_salinity, BaCl2_concentration);
 
     feed_heat_transf_coef = ChannelHeatTransfCoef(&feed_prop,
                                                   feed_mass_flow_rate,
@@ -97,7 +98,7 @@ PetscErrorCode DessalBalance(DessalData *dessal_data)
     WaterProduction water_production;
     PetscReal latent_resistance;
 
-    SaltWaterPropBuild(&film_prop, film_boundary_temperature, 0.0);
+    SaltWaterPropBuild(&film_prop, film_boundary_temperature, 0.0, 0.0);
 
     water_production = MassFlux(membrane_porosity,
                                 membrane_tortuosity,
@@ -156,8 +157,8 @@ PetscErrorCode DessalBalance(DessalData *dessal_data)
     PetscReal cool_resistance, cool_heat_transf_coef;
     PetscReal avg_cool_temperature = 0.5 * (entry_temperature_cool + out_temperature_cool);
 
-    SaltWaterPropBuild(&cool_prop, avg_cool_temperature, entry_salinity_cool);
-    SaltWaterPropBuild(&cool_wall_prop, cool_wall_temperature, entry_salinity_cool);
+    SaltWaterPropBuild(&cool_prop, avg_cool_temperature, entry_salinity_cool, BaCl2_concentration);
+    SaltWaterPropBuild(&cool_wall_prop, cool_wall_temperature, entry_salinity_cool, BaCl2_concentration);
 
     cool_heat_transf_coef = ChannelHeatTransfCoef(&cool_prop,
                                                   cool_mass_flow_rate,

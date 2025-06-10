@@ -12,7 +12,8 @@ PetscErrorCode EntryDataBuild(EntryData *entry_data)
               entry_temperature_cool = 25.0, // Default: 25.0 degC
               entry_salinity_feed = 3.5e-2, // Default: 3.5 wt%
               entry_salinity_cool = 3.5e-2, // Default: 3.5 wt%
-              vacuum_pressure = -50000.0; // Default: -50000.0 Pa
+              vacuum_pressure = -50000.0, // Default: -50000.0 Pa
+              BaCl2_concentration = 14.96 * 1.0e-3; // Default: 14.96 mg/L
 
     PetscOptionsGetReal(NULL, NULL, "-feed_mass_flow_rate", &feed_mass_flow_rate, NULL);
     PetscOptionsGetReal(NULL, NULL, "-cool_mass_flow_rate", &cool_mass_flow_rate, NULL);
@@ -21,6 +22,7 @@ PetscErrorCode EntryDataBuild(EntryData *entry_data)
     PetscOptionsGetReal(NULL, NULL, "-entry_salinity_feed", &entry_salinity_feed, NULL);
     PetscOptionsGetReal(NULL, NULL, "-entry_salinity_cool", &entry_salinity_cool, NULL);
     PetscOptionsGetReal(NULL, NULL, "-vacuum_pressure", &vacuum_pressure, NULL);
+    PetscOptionsGetReal(NULL, NULL, "-BaCl2_concentration", &BaCl2_concentration, NULL);
 
     dessal_data.feed_mass_flow_rate = feed_mass_flow_rate;
     dessal_data.cool_mass_flow_rate = cool_mass_flow_rate;
@@ -29,6 +31,7 @@ PetscErrorCode EntryDataBuild(EntryData *entry_data)
     dessal_data.entry_salinity_feed = entry_salinity_feed;
     dessal_data.entry_salinity_cool = entry_salinity_cool;
     dessal_data.vacuum_pressure = vacuum_pressure;
+    dessal_data.BaCl2_concentration = BaCl2_concentration;
 
     // Geometrical dimensions and fixed properties
     PetscReal membrane_area = 12.96, // Default: 12.96 m^2

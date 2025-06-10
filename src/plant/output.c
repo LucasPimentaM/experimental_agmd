@@ -21,7 +21,7 @@ PetscErrorCode ExportToFile(Vec *vector, EntryData *entry_data, char file[])
 
     SaltWaterPropBuild(&prop,
                        0.5 * (dessal_data.entry_temperature_feed + array[1]),
-                       dessal_data.entry_salinity_cool);
+                       dessal_data.entry_salinity_cool, dessal_data.BaCl2_concentration);
 
     GOR = dessal_data.cool_mass_flow_rate * prop.specific_heat * (dessal_data.entry_temperature_feed - array[1]);
     SEC = GOR / (3600.0 * array[10] * dessal_data.membrane_area);

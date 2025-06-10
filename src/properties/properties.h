@@ -18,7 +18,7 @@ typedef struct
 } SaltWaterProperties;
 
 // Function that updates the thermophysical properties of salt water
-PetscErrorCode SaltWaterPropBuild(SaltWaterProperties *salt_water_prop, PetscReal temperature, PetscReal salinity);
+PetscErrorCode SaltWaterPropBuild(SaltWaterProperties *salt_water_prop, PetscReal temperature, PetscReal salinity, PetscReal BaCl2_concentration);
 
 // Function that updates the thermophysical properties of moist air
 PetscErrorCode MoistAirPropBuild(MoistAirProperties *moist_air_prop, PetscReal temperature);
