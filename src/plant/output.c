@@ -38,6 +38,7 @@ PetscErrorCode ExportToFile(Vec *vector, EntryData *entry_data, char file[])
     PetscFPrintf(PETSC_COMM_WORLD, fptr, "Salinity at the feed-membrane interface =, %.10f, wt%%\n", 100.0 * array[7]);
     PetscFPrintf(PETSC_COMM_WORLD, fptr, "Feed salinity at the outlet of the module =, %.10f, wt%%\n", 100.0 * array[8]);
     PetscFPrintf(PETSC_COMM_WORLD, fptr, "Mass flux =, %.10f, kg/m²h\n", 3600.0 * array[10]);
+    PetscFPrintf(PETSC_COMM_WORLD, fptr, "Distillate flow rate =, %.10f, L/h\n", 3600.0 * array[10] * entry_data->dessal_data.membrane_area / prop.density * 1000.0);
     PetscFPrintf(PETSC_COMM_WORLD, fptr, "Heat flux =, %.10f, W/m²\n", array[12]);
     PetscFPrintf(PETSC_COMM_WORLD, fptr, "Vapor heat flux =, %.10f, W/m²\n", array[13]);
     PetscFPrintf(PETSC_COMM_WORLD, fptr, "Gain-output ratio (GOR) =, %.10f,\n", GOR);

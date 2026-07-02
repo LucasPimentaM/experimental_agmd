@@ -16,7 +16,8 @@ static const PetscReal salt_diffusivity = 1.473e-9; // https://doi.org/10.1021/j
 static const PetscReal acceleration_gravity = 9.81;
 static const PetscReal gas_constant = 8.3144698;
 static const PetscReal atm_pressure = 101.325e3;
-static const PetscReal membrane_tortuosity = 2.27; // https://doi.org/10.1016/j.memsci.2017.04.002
+static const PetscReal membrane_tortuosity = 1.44; // Khayet, M., Mengual, J. I., & Zakrzewska-Trznadel, G. (2005). Direct contact membrane distillation for nuclear desalination. Part I: review of membranes used in membrane distillation and methods for their characterisation. International journal of nuclear desalination, 1(4), 435-449
+// static const PetscReal membrane_tortuosity = 2.27; // https://doi.org/10.1016/j.memsci.2017.04.002
 
 // Data structure containing the data involved in the model for the desalination module
 typedef struct
